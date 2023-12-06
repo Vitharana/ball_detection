@@ -8,13 +8,14 @@ data = {
     'upper_s': 255,
     'lower_v': 45,
     'upper_v': 255,
-    'kernel': 38,
-    'blur': 1,
+    'kernel': 20,
+    'blur': 0,
     'radius': 5
 }
 
 
-def write_default_values():
+def write_default_values_file():
+    global data
     # Open a JSON file in write mode
     with open('data_default.json', 'w') as json_file:
         json.dump(data, json_file)
@@ -25,7 +26,7 @@ def get_default_values():
     with open('data.json', 'r') as json_file:
         return json.load(json_file)
 
-def write_default_values(current_values):
+def write_custom_values_file(current_values):
     # Open a JSON file in write mode
 
     file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")])
@@ -36,7 +37,7 @@ def write_default_values(current_values):
             json.dump(current_values, json_file)
 
 
-def get_default_from_file():
+def get_values_from_file():
 
     # Ask the user to choose a JSON file
     file_path = filedialog.askopenfilename(filetypes=[("JSON Files", "*.json")])
